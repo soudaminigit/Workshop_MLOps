@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+   taxi_training:
+     build: ./training
+     
+   taxi_service:
+     build: ./service
+     container_name: taxi_service
+     ports:
+       - '5000:5000'
+   web_service:
+     build: 
+       context: ./Webpage
+       dockerfile: Dockerfile
+     image: taxi_web
+     ports:
+       - 80:80
+    
+       
